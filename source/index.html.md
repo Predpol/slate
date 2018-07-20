@@ -11,6 +11,7 @@ toc_footers:
 includes:
     - import
     - mission
+    - district
 
 search: true
 ---
