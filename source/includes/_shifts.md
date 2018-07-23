@@ -59,7 +59,7 @@ curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X POS
 
 `POST <customer_name>.predpol.com/api/shifts.json`
 
-The show API is used to create a new shift. If the request is processed successfully, the new shift object along with status 'created' is rendered as json. Otherwise, an appropriate error is thrown with status 'unprocessable_entity'. The shell shows a sample POST request for Create API.
+The create API is used to create a new shift. If the request is processed successfully, the new shift object along with status 'created' is saved and rendered as json. Otherwise, an appropriate error is thrown with status 'unprocessable_entity'. The shell shows a sample POST request for create API.
 
 A shifts object has the following properties:
 
@@ -82,7 +82,7 @@ curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X PUT
 
 `PUT <customer_name>.predpol.com/api/shifts/<id>.json`
 
-The show API is used to update an existing shift on the basis of shift id. If the request is processed successfully, the updated shift object is rendered as json. Otherwise, an appropriate error is thrown with status 'unprocessable_entity'. The shell shows a sample PUT request for Update API.
+The update API is used to update an existing shift on the basis of shift id. If the request is processed successfully, the updated shift object is rendered as json. Otherwise, an appropriate error is thrown with status 'unprocessable_entity'. The shell shows a sample PUT request for update API.
 
 A shifts object has the following properties:
 
@@ -93,7 +93,7 @@ hour_start | The hour at which shift started.
 hour_end | The hour at which shift ended.
 
 <aside class="notice">
-Properties associated with Update API are optional.
+Properties associated with update API are optional.
 </aside>
 
 ## Destroy
@@ -107,4 +107,4 @@ curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X DEL
 
 `DELETE <customer_name>.predpol.com/api/shifts/<id>.json`
 
-The destroy API is used to delete an existing shift on the basis of shift id. The shell shows a sample DELETE request for Destroy API.
+The destroy API is used to delete an existing shift on the basis of shift id. The shell shows a sample DELETE request for destroy API.
