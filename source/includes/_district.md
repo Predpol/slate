@@ -64,7 +64,7 @@ curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X GET
 ]' https://<customer_name>.predpol.com/api/districts.json
 ```
 
-`GET api.predpol.com/api/districts.json`
+`GET <customer_name>.predpol.com/api/districts.json`
 
 The index API is used to fetch all the districts. The response contains an array of district objects.
 
@@ -111,7 +111,7 @@ curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X GET
 }' https://<customer_name>.predpol.com/api/districts/<id>.json
 ```
 
-`GET api.predpol.com/api/districts/1.json`
+`GET <customer_name>.predpol.com/api/districts/<id>.json`
 
 The show API is used to fetch an individual district. The response contains a district object corresponding to the 'id' passed in the request.
 
@@ -122,3 +122,9 @@ Parameter | Value | Description
 kml | Boolean | Each district has a KML associated with it. If this parameter is true, districts are retrieved along with their KML.
 crime_types | Boolean | Each district has crime_types associated with it. If this parameter is true, districts are retrieved along with their crime_types.
 shifts | Boolean | Each district has shifts associated with it. If this parameter is true, districts are retrieved along with their shifts.
+
+## Create
+
+## Update
+
+## Destroy
