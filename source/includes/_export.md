@@ -202,3 +202,130 @@ min_lng | Minimum longitude coordinate for locating the prediction box.
 look_for | Indicates an array of crimes to be aware of inside the corresponding prediction box.
 recent_crime_counts | Indicates the number of crimes that recently occured within the prediction box.
 grid_cell_id | Depicts a unique grid cell id that is associated with each prediction box.
+
+## Dosage
+
+### Visits
+
+```shell
+curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X GET -d 
+'[
+    {
+        "id":null,
+        "device_number":"1L41  ",
+        "begin_time":"2018-07-07T05:35:09.000-07:00",
+        "end_time":"2018-07-07T05:35:14.000-07:00",
+        "duration":5.0,
+        "prediction_box_id":5845674,
+        "address":"239 W 11 Th St",
+        "shift_name":"DAY",
+        "mission_name":"Auto Theft/Auto Burg"
+    },
+    {
+        "id":null,
+        "device_number":"1L51  ",
+        "begin_time":"2018-07-07T06:19:46.000-07:00",
+        "end_time":"2018-07-07T06:20:07.000-07:00",
+        "duration":21.0,
+        "prediction_box_id":5845680,
+        "address":"Holly \u0026 205 ",
+        "shift_name":"DAY",
+        "mission_name":"Auto Theft/Auto Burg"
+    }
+]' https://<customer_name>.predpol.com/api/analytics/visits
+```
+
+`GET <customer_name>.predpol.com/api/analytics/visits`
+
+The visits API is used to track dosages. The response contains an array of dosage objects.
+
+The request can have the following parameters:
+
+Parameter | Description
+---------| -----------
+start_time | Time from when the dosages should be considered. If the parameter is absent, a default time of two days prior midnight is used.
+end_time | Time till when the dosages should be considered. If the parameter is absent, server's current timestamp is used.
+shift_ids | Filtering dosages on the basis of shifts. A list of comma-separated shift-ids can be passed in case of multiple shifts.
+district_ids | Filtering dosages on the basis of districts. A list of comma-separated district-ids can be passed in case of multiple districts.
+mission_id | Filtering dosages on the basis of mission.
+
+<aside class="notice">
+Visits API is used in newer version of dosage model - version 2.
+</aside>
+
+### Dosages
+
+```shell
+curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X GET -d 
+'[
+    {
+        "id":null,
+        "device_number":"1C11  ",
+        "duration":13.0,
+        "date":"2018-07-07",
+        "hour":"08"
+    },
+    {
+        "id":null,
+        "device_number":"1K61  ",
+        "duration":5.0,
+        "date":"2018-07-07",
+        "hour":"07"
+    }
+]' https://<customer_name>.predpol.com/api/analytics/dosages.json
+```
+
+`GET <customer_name>.predpol.com/api/analytics/dosages.json`
+
+The dosages API is used to track dosages. The response contains an array of dosage objects.
+
+The request can have the following parameters:
+
+Parameter | Description
+---------| -----------
+start_time | Time from when the dosages should be considered. If the parameter is absent, a default time of two days prior midnight is used.
+end_time | Time till when the dosages should be considered. If the parameter is absent, server's current timestamp is used.
+device_number | The unique identifier of the device that should be tracked.
+shift_ids | Filtering dosages on the basis of shifts. A list of comma-separated shift-ids can be passed in case of multiple shifts.
+district_ids | Filtering dosages on the basis of districts. A list of comma-separated district-ids can be passed in case of multiple districts.
+mission_id | Filtering dosages on the basis of mission.
+
+<aside class="notice">
+Dosages API is used in older version of dosage model - version 1.
+</aside>
+
+### Dosage By Device
+
+```shell
+curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X GET -d 
+'[
+    {
+        "id":null,
+        "device_number":"1L41  ",
+        "duration":0.0,
+        "visit_count":1
+    },
+    {
+        "id":null,
+        "device_number":"2C11  ",
+        "duration":0.0,
+        "visit_count":3
+    }
+]' https://<customer_name>.predpol.com/api/analytics/dosage_by_device
+```
+
+`GET <customer_name>.predpol.com/api/analytics/dosage_by_device`
+
+The dosage by device API is used to fetch dosages belonging to a particular prediction box with a specific shift and mission. The response contains an array of dosage objects.
+
+The request must have the following parameters:
+
+Parameter | Description
+---------| -----------
+shift_id | Unique identifier of the shift whose dosage is required.
+mission_id | Unique identifier of the mission whose dosage is required.
+prediction_box_id | Unique identifier of the prediction box whose dosage is required.
+
+<aside class="notice">
+All the parameters are mandatory to get a response. If any parameter is missing, a page-not-found error will be displayed.
+</aside>
