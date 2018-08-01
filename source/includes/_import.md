@@ -37,17 +37,17 @@ crime object (to crime.json) or as an array of crime objects (to crimes.json).
 
 A crime object has the following properties:
 
-Property | Description
----------| -----------
-docket_number | A unique identifier of a crime. The docket number is required and is used to identify individual crimes so that they may be updated later. Docket numbers must never be reused.
-begin_time | The earliest time that a crime may have occurred in [RFC3339](https://tools.ietf.org/html/rfc3339) format.
-end_time | The latest time that a crime may have occurred in [RFC3339](https://tools.ietf.org/html/rfc3339) format.
-latitude | Latitude of a crime in decimal degrees.
-longitude | Longitude of a crime in decimal degrees.
-address | The address where the crime occurred.
-description | A brief description of the event.
-violation_codes | Violation codes are used by Predpol to classify crimes into specific crime types. A crime may have multiple violation codes which can be passed at one time as an array.
-violation_code | A single, string-valued violation code may be passed if the crime has only one violation code. (Ignored if violation_codes exists).
+Property | Type | Description
+--------- | ------- | -----------
+docket_number | String | A unique identifier of a crime. The docket number is required and is used to identify individual crimes so that they may be updated later. Docket numbers must never be reused.
+begin_time | String | The earliest time that a crime may have occurred in [RFC3339](https://tools.ietf.org/html/rfc3339) format.
+end_time | String | The latest time that a crime may have occurred in [RFC3339](https://tools.ietf.org/html/rfc3339) format.
+latitude | Float | Latitude of a crime in decimal degrees.
+longitude | Float | Longitude of a crime in decimal degrees.
+address | String | The address where the crime occurred.
+description | String |  A brief description of the event.
+violation_codes | String array | Violation codes are used by Predpol to classify crimes into specific crime types. A crime may have multiple violation codes which can be passed at one time as an array.
+violation_code | String | A single, string-valued violation code may be passed if the crime has only one violation code. (Ignored if violation_codes exists).
 
 <aside class="notice">
 Multiple violation codes may also be added to a crime by sending the same crime object repeatedly with different violation codes within an hour.
@@ -80,12 +80,12 @@ The locations API is used to send updates about officer locations. Each request 
 
 A location object has the following properties:
 
-Property | Description
--------- | ----------
-latitude | The latitude of the officer in decimal degrees.
-longitude | The longitude of the officer in decimal degrees.
-device | A unique identifer of the vehicle.
-time_stamp | The time at which the location was recorded in [RFC3339](https://tools.ietf.org/html/rfc3339) format.
+Property | Type | Description
+-------- | ------- | ----------
+latitude | Float | The latitude of the officer in decimal degrees.
+longitude | Float | The longitude of the officer in decimal degrees.
+device | String | A unique identifer of the vehicle.
+time_stamp | String | The time at which the location was recorded in [RFC3339](https://tools.ietf.org/html/rfc3339) format.
 
 
 
