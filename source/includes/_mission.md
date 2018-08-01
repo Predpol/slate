@@ -29,7 +29,7 @@ curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X POS
 '{
         "name":"Auto Theft/Auto Burg",
         "crime_type_ids": [1, 3]
-}' https://YOUR_SITE.predpol.com/api/missions.json
+}' https://<YOUR_SITE>.predpol.com/api/missions.json
 ```
 
 `POST <YOUR_SITE>.predpol.com/api/missions.json`
