@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
     - import
+    - mission
 
 search: true
 ---
