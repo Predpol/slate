@@ -12,6 +12,7 @@ includes:
     - import
     - mission
     - district
+    - shifts
 
 search: true
 ---
