@@ -13,6 +13,7 @@ includes:
     - mission
     - district
     - shifts
+    - prediction_boxes
 
 search: true
 ---
