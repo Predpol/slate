@@ -1,4 +1,4 @@
-# Crime Types
+# Incident Types
 
 ## List
 

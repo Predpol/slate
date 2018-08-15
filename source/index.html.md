@@ -10,8 +10,8 @@ toc_footers:
 
 includes:
     - import
-    - crime_types
     - district
+    - crime_types
     - mission
     - prediction_boxes
     - shifts
