@@ -10,10 +10,10 @@ toc_footers:
 
 includes:
     - import
-    - mission
     - district
-    - shifts
+    - mission
     - prediction_boxes
+    - shifts
 
 search: true
 ---

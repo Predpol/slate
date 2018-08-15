@@ -1,4 +1,4 @@
-# Shifts APIs
+# Shifts
 
 ## List
 
@@ -6,10 +6,44 @@
 curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY"\
     https://<YOUR_SITE>.predpol.com/api/shifts.json
 ```
+> Response
+
+```json
+[
+    {
+        "id": 1,
+        "label": "DAY",
+        "hour_start": 5,
+        "hour_end": 15,
+        "created_at": "2015-09-22T11:45:53.000-07:00",
+        "updated_at": "2015-09-22T11:45:53.000-07:00"
+    },
+
+    ...
+
+]
+```
+
 
 `GET <YOUR_SITE>.predpol.com/api/shifts.json`
 
-The index API is used to fetch all the shifts. The response contains an array of shift objects.
+The index API is used to fetch all the shifts. It takes no parameters. The response contains an array of shift objects.
+
+Each shift object contains the following properties.
+
+Property | Type | Description
+------- | ------- | ---------
+id | Integer | The unique id of the shift.
+label | String | The name of the shift.
+hour_start | Integer | The hour that the shift begins.
+hour_end | Integer | The hour that the shift ends.
+created_at | String | The date and time that the shift was created.
+updated_at | String | The date and time that the shift was last updated.
+
+
+<aside class="notice">
+All times are local. If a shift cross midnight the end_hour will be greater than 24.
+</aside>
 
 ## Show
 
@@ -18,58 +52,35 @@ curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY"\
     https://<YOUR_SITE>.predpol.com/api/shifts/<ID>.json
 ```
 
+> Response
+
+```json
+{
+    "id": 1,
+    "label": "DAY",
+    "hour_start": 5,
+    "hour_end": 15,
+    "created_at": "2015-09-22T11:45:53.000-07:00",
+    "updated_at": "2015-09-22T11:45:53.000-07:00"
+}
+```
+
 `GET <YOUR_SITE>.predpol.com/api/shifts/<ID>.json`
 
-The show API is used to fetch an individual shift. The response contains a shift object corresponding to the 'id' passed in the request.
+The show API is used to fetch an individual shift. It takes no parameters. The response contains a shift object corresponding to the 'id' passed in the request.
 
-## Create
-
-```shell
-curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X POST -d 
-'{
-        "label":"DAY",
-        "hour_start":5,
-        "hour_end":15
-}' https://<YOUR_SITE>.predpol.com/api/shifts.json
-```
-
-`POST <YOUR_SITE>.predpol.com/api/shifts.json`
-
-The create API is used to create a new shift. If the request is processed successfully, the new shift object is rendered as json. Otherwise, an appropriate error is thrown with status 'unprocessable_entity'. 
-
-A shifts object has the following properties:
+The shift object contains the following properties.
 
 Property | Type | Description
--------- | -------- | ----------
-label | String | Label corresponds to the name of the shift.
-hour_start | Integer | The hour at which the shift starts.
-hour_end | Integer | The hour at which the shift ends.
+------- | ------- | ---------
+id | Integer | The unique id of the shift.
+label | String | The name of the shift.
+hour_start | Integer | The hour that the shift begins.
+hour_end | Integer | The hour that the shift ends.
+created_at | String | The date and time that the shift was created.
+updated_at | String | The date and time that the shift was last updated.
 
-## Update
-
-```shell
-curl -H "Content-Type: application/json" -H "X-Predpol-Key: YOUR_API_KEY" -X PUT -d 
-'{
-        "label":"DAY",
-        "hour_start":5,
-        "hour_end":15
-}' https://<YOUR_SITE>.predpol.com/api/shifts/<ID>.json
-```
-
-`PUT <YOUR_SITE>.predpol.com/api/shifts/<ID>.json`
-
-The update API is used to update an existing shift on the basis of shift id. If the request is processed successfully, the updated shift object is rendered as json. Otherwise, an appropriate error is thrown with status 'unprocessable_entity'.
-
-A shifts object has the following properties:
-
-Property | Type | Description
--------- | -------- | ----------
-label | String | Label corresponds to the name of the shift.
-hour_start | Integer | The hour at which the shift starts.
-hour_end | Integer | The hour at which the shift ends.
 
 <aside class="notice">
-Properties associated with update API are optional.
+All times are local. If a shift cross midnight the end_hour will be greater than 24.
 </aside>
-
-
