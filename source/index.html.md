@@ -11,6 +11,7 @@ toc_footers:
 includes:
     - import
     - district
+    - incidents
     - crime_types
     - mission
     - prediction_boxes

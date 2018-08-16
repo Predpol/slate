@@ -41,7 +41,7 @@ An incident object has the following properties:
 
 Property | Type | Description
 --------- | ------- | -----------
-incident_id | String | A unique identifier of the incident. The docket number is required and is used to identify individual incidents so that they may be updated later. Incident IDs must never be reused.
+incident_id | String | A unique identifier of the incident. The incident_id is required and is used to identify individual incidents so that they may be updated later. Incident IDs must never be reused.
 begin_time | String | The earliest time that the incident may have occurred in [RFC3339](https://tools.ietf.org/html/rfc3339) format.
 end_time | String | The latest time that the incident may have occurred in [RFC3339](https://tools.ietf.org/html/rfc3339) format.
 latitude | Float | Latitude of the incident in decimal degrees.
