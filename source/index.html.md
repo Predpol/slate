@@ -14,7 +14,6 @@ includes:
     - incidents
     - crime_types
     - mission
-    - prediction_boxes
     - shifts
 
 search: true
